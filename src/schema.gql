@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Purchase {
+  date: DateTime!
+  products: [ProductUnion!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+union ProductUnion = Book | Computer | TV | Magazine | Ebook
+
+type Book {
+  category: CategoryEnum!
+  title: String!
+}
+
+enum CategoryEnum {
+  BOOK
+  ELETRONICS
+}
+
+type Computer {
+  category: CategoryEnum!
+  brand: String!
+}
+
+type TV {
+  category: CategoryEnum!
+  brand: String!
+}
+
+type Magazine {
+  category: CategoryEnum!
+  title: String!
+}
+
+type Ebook {
+  category: CategoryEnum!
+  title: String!
+}
+
+type Query {
+  purchases: [Purchase!]!
+}
